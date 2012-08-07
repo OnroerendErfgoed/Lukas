@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTf-8" ?>
+
+<phpunit bootstrap="test/bootstrap.php" colors="true">
+	<testsuites>
+		<testsuite name="Lukas">
+			<directory>test/OE/Lukas/</directory>
+		</testsuite>
+	</testsuites>
+
+	<logging>
+		<log type="coverage-text" target="php://stdout" />
+	</logging>
+
+	<filter>
+		<whitelist addUncoveredFilesFromWhiteList="true">
+			<directory suffix=".php">src/OE/Lukas/</directory>
+		</whitelist>
+	</filter>
+</phpunit>
