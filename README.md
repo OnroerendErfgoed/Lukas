@@ -1,4 +1,4 @@
-Lukas = Search Query Handler
+Lukas - Search Query Handler
 ============================
 
 Lukas is a library that helps in implementing a custom search query language. 
@@ -8,3 +8,8 @@ like boolean operators and subexpressions.
 Lukas can also help you implement custom behaviour for certain keywords, you 
 might for eg. define that keyword "photo" to mean "search for things that have a
 photo".
+
+Unit Tests
+----------
+
+[![Build Status](https://secure.travis-ci.org/OnroerendErfgoed/Lukas.png?branch=master)](http://travis-ci.org/OnroerendErfgoed/Lukas)
