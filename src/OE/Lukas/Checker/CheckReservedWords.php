@@ -46,9 +46,9 @@ class CheckReservedWords implements IKeywordChecker
      */
     public function checkKeyword($term, $context)
     {
-        if(array_key_exists($term, $this->woorden))
+        if(array_key_exists($term, $this->words))
         {
-            return $this->woorden[$term];
+            return $this->words[$term];
         } else {
             return false;
         }

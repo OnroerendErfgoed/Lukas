@@ -16,6 +16,7 @@ use OE\Lukas\QueryTree\SubExpression;
 use OE\Lukas\QueryTree\Negation;
 use OE\Lukas\QueryTree\DisjunctiveExpressionList;
 use OE\Lukas\QueryTree\ConjunctiveExpressionList;
+use OE\Lukas\Checker\IKeywordChecker;
 
 /**
  * QueryItemChecker
@@ -50,7 +51,7 @@ class QueryItemChecker implements IQueryItemVisitor
      * @param TrefwoordChecker $checker
      * @param QueryContext     $context
      */
-    public function __construct($label, TrefwoordChecker $checker, QueryContext $context)
+    public function __construct($label, IKeywordChecker $checker, QueryContext $context)
     {
         $this->label = $label;
         $this->checker = $checker;
@@ -64,10 +65,10 @@ class QueryItemChecker implements IQueryItemVisitor
      * @param string     $word
      * @return void
      */
-    private function checkQuery(Item $query, $word)
+    private function checkQuery(QueryItem $query, $word)
     {
 
-        $value = $this->checker->checkTrefwoord($word, $this->context);
+        $value = $this->checker->checkKeyword($word, $this->context);
         if($value)
         {
             $query->getInterpretaties()->addInterpretatie($this->label, $value);
