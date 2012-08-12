@@ -31,3 +31,5 @@ It supports the following features:
  * Keywords can be combined using boolean or, eg. _Lukas OR me_.
  * Keywords can be negated using boolean, written as _-keyword_, eg. _-Lukas_.
  * Combinational logic can be specified using parentheses, eg. _Lukas OR (me AND you)_.
+ * A keyword can be explicitely marked as belonging to a certain domain, 
+   eg. _people:Lukas_.
