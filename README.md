@@ -38,7 +38,7 @@ It supports the following features:
 Installation
 ------------
 
-Lukas can be installed from [packagist](packagist.org) through 
+Lukas can be installed from [packagist](http://packagist.org) through 
 [composer](http://getcomposer.org). Add a file called *composer.json* 
 that contains the following:
 
