@@ -33,3 +33,41 @@ It supports the following features:
  * Combinational logic can be specified using parentheses, eg. _Lukas OR (me AND you)_.
  * A keyword can be explicitely marked as belonging to a certain domain, 
    eg. _people:Lukas_.
+
+
+Installation
+------------
+
+Lukas can be installed from [packagist](packagist.org) through 
+[composer](http://getcomposer.org). Add a file called *composer.json* 
+that contains the following:
+
+```json
+{
+	"require": {
+		"oe/lukas": "dev-master"
+	}
+}
+```
+
+Please bear in mind that Lukas is still in active development. Installing 
+"dev-master" means you are running from trunk. As soon as we hit a stable version
+it would be best to change "dev-master" to eg. "0.1.0"
+
+Download and install composer:
+
+```
+curl -s http://getcomposer.org/installer | php
+```
+
+Install Lukas:
+
+```
+php composer.phar install
+```
+
+Examples
+--------
+
+The examples folder contains some samples of what can be parsed and how a certain
+string will be parsed.
