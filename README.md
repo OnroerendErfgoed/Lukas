@@ -71,3 +71,40 @@ Examples
 
 The examples folder contains some samples of what can be parsed and how a certain
 string will be parsed.
+
+Contributing
+------------
+
+All contributions are welcome. Please fork the repository and send us a pull 
+request. If at all possible include unit tests in the pull request.
+
+To run the unit tests, first download and install composer:
+
+```
+curl -s http://getcomposer.org/installer | php
+```
+
+Create the autoloader:
+
+```
+php composer.phar install
+```
+
+Run the unit tests:
+
+```
+phpunit
+```
+
+Out of the box this will print code coverage information to the commandline.
+Although this is usefull and tells us how much coverage each class has, it does
+not show what parts of a class are covered or not. To see that kind of information,
+please run phpunit like this:
+
+```
+phpunit --coverage-html build/coverage/html
+```
+
+
+
+
