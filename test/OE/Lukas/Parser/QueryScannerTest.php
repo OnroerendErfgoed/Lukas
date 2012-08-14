@@ -64,4 +64,17 @@ class QueryScannerTest extends \PHPUnit_Framework_TestCase
             array( '"', QueryScanner::QUOTE ),
         );
     }
+
+    public function testGetTokenTypeText( )
+    {
+        $this->assertEquals( "TEXT", $this->scanner->getTokenTypeText( QueryScanner::TEXT ) );
+    }
+
+    public function testGetTokenTypeTextCurrenToken( )
+    {
+        $this->scanner->readString( 'Lukas' );
+        $this->scanner->next();
+        $this->assertEquals( "WORD", $this->scanner->getTokenTypeText() );
+    }
+
 }

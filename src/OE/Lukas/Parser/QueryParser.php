@@ -89,7 +89,7 @@ class QueryParser
      */
     public function hasFeedback()
     {
-        return (size($this->feedback) > 0);
+        return count($this->feedback) > 0;
     }
 
     /**

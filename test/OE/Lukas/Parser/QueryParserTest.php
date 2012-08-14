@@ -105,4 +105,32 @@ class QueryParserTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf( 'OE\Lukas\QueryTree\DisjunctiveExpressionList', $result );
     }
 
+    /**
+     * Test parsing of a string containing a subexpression
+     *
+     * @return void
+     */
+    public function testeParseSubexpression( )
+    {
+        $this->parser->readString( '(Lukas)' );
+        $result = $this->parser->parse();
+        $this->assertInstanceOf( 'OE\Lukas\QueryTree\Subexpression', $result );
+    }
+
+    public function testParseUnclosedQuotesError( )
+    {
+        $this->parser->readString( '"Lukas' );
+        $result = $this->parser->parse();
+        $this->assertFalse( $result );
+        $this->assertTrue( $this->parser->hasFeedback() );
+    }
+
+    public function testParseInvalidNegationError( )
+    {
+        $this->parser->readString( '-"Lukas' );
+        $result = $this->parser->parse();
+        $this->assertFalse( $result );
+        $this->assertTrue( $this->parser->hasFeedback() );
+    }
+
 }
