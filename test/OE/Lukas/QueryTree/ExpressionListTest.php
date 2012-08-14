@@ -53,4 +53,13 @@ abstract class ExpressionListTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(2, count($this->expressionList));
     }
+
+    public function testIterator( )
+    {
+        $counter = 0;
+        $items = array( 0 => $this->Lukas, 1 => $this->me );
+        foreach( $this->expressionList as $expression ) {
+            $this->assertSame( $expression, $items[$counter++]);
+        }
+    }
 }

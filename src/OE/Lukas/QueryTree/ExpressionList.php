@@ -17,7 +17,7 @@ namespace OE\Lukas\QueryTree;
  * @author    Dieter Standaert <dieter.standaert@gmail.com>
  * @license   http://opensource.org/licenses/mit-license.php The MIT License
  */
-abstract class ExpressionList extends QueryItem implements \Countable
+abstract class ExpressionList extends QueryItem implements \IteratorAggregate, \Countable
 {
     /**
      * @var expression
@@ -45,6 +45,16 @@ abstract class ExpressionList extends QueryItem implements \Countable
     }
 
     /**
+     * getIterator
+     *
+     * @return  \ArrayIterator
+     */
+    public function getIterator()
+    {
+        return new \ArrayIterator( $this->expressions );
+    }
+
+    /**
      * countExpressions
      *
      * @deprecated
@@ -64,4 +74,5 @@ abstract class ExpressionList extends QueryItem implements \Countable
     {
         return count($this->expressions);
     }
+
 }
