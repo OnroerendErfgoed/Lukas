@@ -9,6 +9,7 @@
 namespace OE\Lukas\Visitor;
 
 use OE\Lukas\QueryTree\Item;
+use OE\Lukas\QueryTree\QueryItem;
 use OE\Lukas\QueryTree\Word;
 use OE\Lukas\QueryTree\Text;
 use OE\Lukas\QueryTree\ExplicitTerm;
@@ -71,7 +72,7 @@ class QueryItemChecker implements IQueryItemVisitor
         $value = $this->checker->checkKeyword($word, $this->context);
         if($value)
         {
-            $query->getInterpretaties()->addInterpretatie($this->label, $value);
+            $query->getInterpretaties()->addInterpretatie($this->label, $value); //not found getInterpretaties method in QueryItem
         }
     }
 
@@ -103,7 +104,7 @@ class QueryItemChecker implements IQueryItemVisitor
      */
     public function visitExplicitTerm(ExplicitTerm $term)
     {
-        if($this->label == $term->getNominator()->getWord())
+        if($this->label == $term->getNominator()->getWord()) //here is something wrong? getNominator() result is string, not object
         {
             $term->getTerm()->accept($this);
         }

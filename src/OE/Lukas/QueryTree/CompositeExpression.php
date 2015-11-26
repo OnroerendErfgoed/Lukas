@@ -20,7 +20,7 @@ namespace OE\Lukas\QueryTree;
 abstract class CompositeExpression extends QueryItem
 {
     /**
-     * @var expression
+     * @var QueryItem
      */
     protected $expression;
 

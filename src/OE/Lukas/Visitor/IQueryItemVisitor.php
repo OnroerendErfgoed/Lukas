@@ -78,4 +78,4 @@ interface IQueryItemVisitor
     public function visitConjunctiveExpressionList(ConjunctiveExpressionList $list);
 }
 
-?>
+
