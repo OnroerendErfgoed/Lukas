@@ -8,15 +8,15 @@
 
 namespace OE\Lukas\Parser;
 
-use OE\Lukas\Parser\QueryScanner;
-
-use OE\Lukas\QueryTree\Text;
-use OE\Lukas\QueryTree\Word;
+use OE\Lukas\QueryTree\ConjunctiveExpressionList;
+use OE\Lukas\QueryTree\DisjunctiveExpressionList;
 use OE\Lukas\QueryTree\ExplicitTerm;
 use OE\Lukas\QueryTree\Negation;
-use OE\Lukas\QueryTree\DisjunctiveExpressionList;
-use OE\Lukas\QueryTree\ConjunctiveExpressionList;
+use OE\Lukas\QueryTree\QueryItem;
+use OE\Lukas\QueryTree\SingleTerm;
 use OE\Lukas\QueryTree\SubExpression;
+use OE\Lukas\QueryTree\Text;
+use OE\Lukas\QueryTree\Word;
 
 /**
  * QueryParser
@@ -108,7 +108,7 @@ class QueryParser
      *  word, text, or explicit term.
      * @param integer $tokenType
      * @param string $word
-     * @return OE\Lukas\QueryTree\SingleTerm or false if failed.
+     * @return SingleTerm or false if failed.
      */
     protected function readTerm($tokenType, $word)
     {
@@ -184,7 +184,7 @@ class QueryParser
      *  * Expression
      *  * '-' Expression
      * @param integer $tokenType
-     * @return OEPSutil_QueryItem or false if failed.
+     * @return QueryItem or false if failed.
      */
     protected function readNegation($tokenType)
     {
@@ -208,7 +208,7 @@ class QueryParser
      *  * Expression
      *  * Expression OR Expression OR ...
      * @param integer $tokenType
-     * @return OEPSutil_QueryItem or false if failed.
+     * @return QueryItem or false if failed.
      */
     protected function readOrExpressionList($tokenType)
     {
@@ -242,7 +242,7 @@ class QueryParser
      *  * Expression
      *  * Expression Expression ...
      * @param integer $tokenType
-     * @return OEPSutil_QueryItem or false if failed.
+     * @return QueryItem or false if failed.
      */
     protected function readAndExpressionList($tokenType)
     {
@@ -274,7 +274,7 @@ class QueryParser
      *  Makes the parser read paren closed (sub)query. The passed token
      *  should be the left paren.
      * @param integer $tokenType
-     * @return OEPSutil_QueryItem or false if failed.
+     * @return QueryItem or false if failed.
      */
     protected function readSubQuery($tokenType)
     {   
@@ -292,7 +292,7 @@ class QueryParser
     /**
      * parse
      *  Makes the parser build an expression tree from the given input.
-     * @return OEPSutil_QueryItem or false if failed.
+     * @return QueryItem or false if failed.
      */
     public function parse()
     {

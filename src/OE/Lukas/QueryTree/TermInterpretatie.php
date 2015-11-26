@@ -64,7 +64,7 @@ class TermInterpretatie
         {
             $this->interpretaties[$label] = array_merge($this->interpretaties[$label], $waarden);
         } else {
-            $this->interpretaties[$label] = array($waarde);
+            $this->interpretaties[$label] = array($waarden);
         }    
     }
 
